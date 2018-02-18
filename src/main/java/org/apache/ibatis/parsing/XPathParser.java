@@ -264,7 +264,9 @@ public class XPathParser {
     this.validation = validation;
     this.entityResolver = entityResolver;
     this.variables = variables;
+    //XPathFactoryImpl
     XPathFactory factory = XPathFactory.newInstance();
+    //XPathImpl
     this.xpath = factory.newXPath();
   }
 

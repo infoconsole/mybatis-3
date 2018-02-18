@@ -31,6 +31,10 @@ import java.util.Set;
  * @author Eduardo Macarron
  * @author Lasse Voss
  */
+
+/**
+ * Mapper的注册中心
+ */
 public class MapperRegistry {
 
   private final Configuration config;

@@ -28,7 +28,7 @@ import org.xml.sax.SAXException;
 
 /**
  * Offline entity resolver for the MyBatis DTDs
- * 
+ * 离线的MyBatis配置文件校验类
  * @author Clinton Begin
  */
 public class XMLMapperEntityResolver implements EntityResolver {

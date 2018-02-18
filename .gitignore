@@ -19,3 +19,7 @@
 velocity.log
 /bin
 /derby.log
+/docs/mybatis.asta.lock
+/mitix-mybatis/mitix-mybatis-len1/target
+/mitix-mybatis/mitix-mybatis-spring/target
+
