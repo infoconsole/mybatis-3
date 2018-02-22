@@ -180,6 +180,7 @@ public class XMLStatementBuilder extends BaseBuilder {
         return false;
       }
       // skip this statement if there is a previous one with a not null databaseId
+      // 获取一个完整的id号
       id = builderAssistant.applyCurrentNamespace(id, false);
       if (this.configuration.hasStatement(id, false)) {
         MappedStatement previous = this.configuration.getMappedStatement(id, false); // issue #2

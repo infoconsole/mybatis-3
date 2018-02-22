@@ -41,7 +41,7 @@ public abstract class BaseBuilder {
    */
   protected final TypeAliasRegistry typeAliasRegistry;
   /**
-   *处理器注册中心
+   *  处理器注册中心
    */
   protected final TypeHandlerRegistry typeHandlerRegistry;
 

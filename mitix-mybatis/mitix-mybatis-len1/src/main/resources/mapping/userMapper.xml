@@ -4,8 +4,16 @@
 <mapper namespace="com.mitix.mybatis.mapper.UserMapper" >
 
     <cache  eviction="LRU"  flushInterval="60000"  size="512"  readOnly="true"/>
-
-    <select id="queryById" parameterType="Integer" resultType="com.mitix.mybatis.model.User">
-        select * from user where id=#{id}
+    
+    <sql id="usercolumn" databaseId="mysql">
+        id,
+        'name',
+        age,
+        'desc',
+        createtime
+    </sql>
+    
+    <select id="queryById" parameterType="Integer" resultType="com.mitix.mybatis.model.User" databaseId="mysql">
+        select  <include refid="usercolumn" />  from user where id=#{id}
     </select>
 </mapper>

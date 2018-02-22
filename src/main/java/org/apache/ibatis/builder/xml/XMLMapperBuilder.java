@@ -105,14 +105,19 @@ public class XMLMapperBuilder extends BaseBuilder {
 
   private void configurationElement(XNode context) {
     try {
+      //解析namespace属性
       String namespace = context.getStringAttribute("namespace");
       if (namespace == null || namespace.equals("")) {
         throw new BuilderException("Mapper's namespace cannot be empty");
       }
       builderAssistant.setCurrentNamespace(namespace);
+      //如果有cache-ref属性  增加CacheRefResolver
       cacheRefElement(context.evalNode("cache-ref"));
+      //增加Cache
       cacheElement(context.evalNode("cache"));
+      //解析parameterMap参数
       parameterMapElement(context.evalNodes("/mapper/parameterMap"));
+      //解析resultMap参数
       resultMapElements(context.evalNodes("/mapper/resultMap"));
       sqlElement(context.evalNodes("/mapper/sql"));
       buildStatementFromContext(context.evalNodes("select|insert|update|delete"));

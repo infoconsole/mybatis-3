@@ -43,9 +43,13 @@
             </dataSource>
         </environment>
     </environments>
+
+    <databaseIdProvider type="VENDOR" >
+        <property name="MySQL" value="mysql"/>
+    </databaseIdProvider>
+
     <mappers>
         <mapper resource="mapping/userMapper.xml"/>
-
     </mappers>
 
 </configuration>
