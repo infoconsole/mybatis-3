@@ -14,6 +14,7 @@
     </sql>
     
     <select id="queryById" parameterType="Integer" resultType="com.mitix.mybatis.model.User" databaseId="mysql">
-        select  <include refid="usercolumn" />  from user where id=#{id}
+        select  <include refid="usercolumn" />  from user where id=#{id,jdbcType=INTEGER}
     </select>
+
 </mapper>

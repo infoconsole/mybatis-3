@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mitix.mybatis.mapper.CarMapper" >
+
+    <insert id="createCar" parameterType="com.mitix.mybatis.model.Car" databaseId="mysql" >
+        insert into  car (carname,carage,cardesc,carcreatetime)
+        values (#{carName,jdbcType=VARCHAR},#{carAge,jdbcType=INTEGER},#{carDesc,jdbcType=VARCHAR},#{carCreateTime,jdbcType=VARCHAR})
+    </insert>
+</mapper>

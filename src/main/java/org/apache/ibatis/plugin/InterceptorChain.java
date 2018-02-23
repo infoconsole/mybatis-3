@@ -28,6 +28,7 @@ public class InterceptorChain {
 
   public Object pluginAll(Object target) {
     for (Interceptor interceptor : interceptors) {
+      //动态代理包装责任链
       target = interceptor.plugin(target);
     }
     return target;

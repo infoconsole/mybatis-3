@@ -91,6 +91,7 @@ public class XMLMapperBuilder extends BaseBuilder {
     if (!configuration.isResourceLoaded(resource)) {
       configurationElement(parser.evalNode("/mapper"));
       configuration.addLoadedResource(resource);
+      //绑定mapper关系addMapper
       bindMapperForNamespace();
     }
 

@@ -42,6 +42,7 @@ public class CachingExecutor implements Executor {
 
   public CachingExecutor(Executor delegate) {
     this.delegate = delegate;
+    //替换掉ExecutorWrapper
     delegate.setExecutorWrapper(this);
   }
 

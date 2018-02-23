@@ -23,6 +23,7 @@ import java.util.Properties;
  * ${DESCRIPTION}
  */
 @Intercepts({@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class,
+        RowBounds.class, ResultHandler.class}),@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class,
         RowBounds.class, ResultHandler.class})})
 public class SQLStatsInterceptor implements Interceptor {
     private final Logger logger = LoggerFactory.getLogger(SQLStatsInterceptor.class);
@@ -37,6 +38,7 @@ public class SQLStatsInterceptor implements Interceptor {
 
     @Override
     public Object plugin(Object target) {
+        //this就是当前的interceptor
         return Plugin.wrap(target, this);
     }
 

@@ -587,9 +587,11 @@ public class Configuration {
         } else {
             executor = new SimpleExecutor(this, transaction);
         }
+        //缓存信息
         if (cacheEnabled) {
             executor = new CachingExecutor(executor);
         }
+        //对executor组件增加责任链
         executor = (Executor) interceptorChain.pluginAll(executor);
         return executor;
     }
@@ -853,6 +855,11 @@ public class Configuration {
         }
     }
 
+    /**
+     * 自定义实现的Map
+     * 存入MAP的时候会根据（.）进行处理  存两个记录进去
+     * @param <V>
+     */
     protected static class StrictMap<V> extends HashMap<String, V> {
 
         private static final long serialVersionUID = -4950446264854982944L;

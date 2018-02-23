@@ -30,6 +30,7 @@ import org.apache.ibatis.session.RowBounds;
 
 /**
  * @author Clinton Begin
+ * 装饰模式的一种，通过RoutingStatementHandler装饰实际的StatementHandler
  */
 public class RoutingStatementHandler implements StatementHandler {
 
