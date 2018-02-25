@@ -11,7 +11,7 @@ import org.mybatis.spring.annotation.MapperScan;
  */
 //@CacheNamespaceRef()
 //@CacheNamespace
-@MapperScan
+//@MapperScan
 public interface UserMapper {
 
     //@Select("select * from user where id=#{id}")
