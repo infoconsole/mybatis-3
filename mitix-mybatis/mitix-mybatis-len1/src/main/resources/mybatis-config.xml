@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="jdbc.properties"/>
+
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="com.mitix.mybatis.model.User" alias="user"/>
+        <package name="com.mitix.mybatis.model"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.mitix.mybatis.handler.DataTimeTypeHandler" javaType="java.util.Date"
+                     jdbcType="VARCHAR"/>
+        <package name="com.mitix.mybatis.model" />
+    </typeHandlers>
+
+    <objectFactory type="com.mitix.mybatis.ExampleObjectFactory">
+        <property name="someProperty" value="100"/>
+    </objectFactory>
+
+    <plugins>
+        <plugin interceptor="com.mitix.mybatis.interceptor.SQLStatsInterceptor">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${database.driver}"/>
+                <property name="url" value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <databaseIdProvider type="VENDOR" >
+        <property name="MySQL" value="mysql"/>
+    </databaseIdProvider>
+
+    <mappers>
+        <mapper resource="mapping/userMapper.xml"/>
+        <mapper resource="mapping/carMapper.xml"/>
+    </mappers>
+
+</configuration>

@@ -14,3 +14,7 @@
 /ibderby
 derby.log
 /bin/
+/docs/mybatis.asta.lock
+/mitix-mybatis/mitix-mybatis-len1/target
+/mitix-mybatis/mitix-mybatis-spring/target
+/mitix-mybatis/mybatis-spring/target
