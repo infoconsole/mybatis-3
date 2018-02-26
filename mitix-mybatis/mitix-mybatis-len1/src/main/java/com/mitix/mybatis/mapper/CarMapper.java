@@ -12,7 +12,5 @@ import org.apache.ibatis.annotations.Flush;
 //@CacheNamespaceRef()
 //@CacheNamespace
 public interface CarMapper {
-
-
     public void createCar(Car car);
 }

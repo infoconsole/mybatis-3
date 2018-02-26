@@ -6,7 +6,7 @@
     <properties resource="jdbc.properties"/>
 
     <settings>
-        <setting name="cacheEnabled" value="true"/>
+        <setting name="cacheEnabled" value="false"/>
     </settings>
 
     <typeAliases>
@@ -25,9 +25,10 @@
     </objectFactory>
 
     <plugins>
-        <plugin interceptor="com.mitix.mybatis.interceptor.SQLStatsInterceptor">
-            <property name="dialect" value="mysql"/>
-        </plugin>
+        <plugin interceptor="com.mitix.mybatis.interceptor.ExecutorInterceptor" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.ParameterHandlerInterceptor" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.ResultSetHandlerInterceptor" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.StatementHandlerInterceptor" />
     </plugins>
 
     <environments default="development">

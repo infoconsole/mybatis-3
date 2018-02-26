@@ -95,6 +95,7 @@ public class Plugin implements InvocationHandler {
     while (type != null) {
       for (Class<?> c : type.getInterfaces()) {
         if (signatureMap.containsKey(c)) {
+          System.out.println("---------代理绑定-------"+type.getName());
           interfaces.add(c);
         }
       }

@@ -578,6 +578,7 @@ public class Configuration {
     if (cacheEnabled) {
       executor = new CachingExecutor(executor);
     }
+    //绑定代理
     executor = (Executor) interceptorChain.pluginAll(executor);
     return executor;
   }

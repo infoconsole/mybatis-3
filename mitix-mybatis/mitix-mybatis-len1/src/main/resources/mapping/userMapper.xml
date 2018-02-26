@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mitix.mybatis.mapper.UserMapper" >
-
+    <!--
     <cache  eviction="LRU"  flushInterval="60000"  size="512"  readOnly="true"/>
-    
+    -->
     <sql id="usercolumn" databaseId="mysql">
         id,
         'name',

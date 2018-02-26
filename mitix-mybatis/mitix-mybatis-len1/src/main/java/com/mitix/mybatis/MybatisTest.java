@@ -30,19 +30,22 @@ public class MybatisTest {
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             //从sqlSessionFactory中获取SqlSession
             SqlSession session = sqlSessionFactory.openSession();
-//            UserMapper userMapper = session.getMapper(UserMapper.class);
-//            User user = userMapper.queryById(2);
-//            System.out.println(user.getCreatetime());
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+            User user = userMapper.queryById(2);
+            System.out.println(user.getCreatetime());
+            User user2 = userMapper.queryById(2);
+            System.out.println(user2.getCreatetime());
 
 
-            Car car = new Car();
-            car.setCarName("dudu");
-            car.setCarAge(22);
-            car.setCarDesc("测试插入");
-            car.setCarCreateTime(new Date());
-            CarMapper carMapper = session.getMapper(CarMapper.class);
-            carMapper.createCar(car);
-            session.commit();
+//            Car car = new Car();
+//            car.setCarName("dudu");
+//            car.setCarAge(22);
+//            car.setCarDesc("测试插入");
+//            car.setCarCreateTime(new Date());
+//            CarMapper carMapper = session.getMapper(CarMapper.class);
+//            carMapper.createCar(car);
+//            session.commit();
+
             session.close();
             System.out.println("结束mybatis实验");
 
