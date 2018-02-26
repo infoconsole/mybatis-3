@@ -41,7 +41,9 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mitix.mybatis.spring.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--
         <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper" />
+        -->
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->

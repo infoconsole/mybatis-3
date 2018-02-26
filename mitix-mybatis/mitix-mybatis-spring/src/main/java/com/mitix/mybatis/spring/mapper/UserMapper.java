@@ -1,6 +1,7 @@
 package com.mitix.mybatis.spring.mapper;
 
 import com.mitix.mybatis.spring.model.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 //import org.apache.ibatis.annotations.Select;
 
@@ -12,6 +13,7 @@ import org.mybatis.spring.annotation.MapperScan;
 //@CacheNamespaceRef()
 //@CacheNamespace
 //@MapperScan
+//@Mapper
 public interface UserMapper {
 
     //@Select("select * from user where id=#{id}")
