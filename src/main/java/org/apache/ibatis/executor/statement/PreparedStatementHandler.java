@@ -60,7 +60,9 @@ public class PreparedStatementHandler extends BaseStatementHandler {
   @Override
   public <E> List<E> query(Statement statement, ResultHandler resultHandler) throws SQLException {
     PreparedStatement ps = (PreparedStatement) statement;
+    //jdbc的实现  执行sql
     ps.execute();
+    //这个地方是结果被切面的地方
     return resultSetHandler.<E> handleResultSets(ps);
   }
 
@@ -90,7 +92,10 @@ public class PreparedStatementHandler extends BaseStatementHandler {
 
   @Override
   public void parameterize(Statement statement) throws SQLException {
+    //这个方法一般会被插件切面切到
+    System.out.println("--------------parameterHandler被插件切面切到以前-------------");
     parameterHandler.setParameters((PreparedStatement) statement);
+    System.out.println("--------------parameterHandler被插件切面切到以后-------------");
   }
 
 }

@@ -55,5 +55,10 @@
             <artifactId>ognl</artifactId>
             <version>3.1.16</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.4</version>
+        </dependency>
     </dependencies>
 </project>

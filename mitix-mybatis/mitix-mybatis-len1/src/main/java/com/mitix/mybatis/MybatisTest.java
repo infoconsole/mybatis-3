@@ -24,17 +24,17 @@ public class MybatisTest {
         try {
 
             System.out.println("开始mybatis实验");
-
             String resource = "mybatis-config.xml";
             InputStream inputStream = Resources.getResourceAsStream(resource);
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             //从sqlSessionFactory中获取SqlSession
             SqlSession session = sqlSessionFactory.openSession();
-            UserMapper userMapper = session.getMapper(UserMapper.class);
-            User user = userMapper.queryById(2);
-            System.out.println(user.getCreatetime());
-            User user2 = userMapper.queryById(2);
-            System.out.println(user2.getCreatetime());
+            UserMapper userMapper1 = session.getMapper(UserMapper.class);
+            User user1 = userMapper1.queryById(2);
+            System.out.println(user1.getCreatetime());
+//            UserMapper userMapper2 = session.getMapper(UserMapper.class);
+//            User user2 = userMapper2.queryById(2);
+//            System.out.println(user2.getCreatetime());
 
 
 //            Car car = new Car();

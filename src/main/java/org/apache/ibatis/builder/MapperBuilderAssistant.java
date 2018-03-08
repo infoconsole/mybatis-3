@@ -108,6 +108,7 @@ public class MapperBuilderAssistant extends BaseBuilder {
       throw new BuilderException("cache-ref element requires a namespace attribute.");
     }
     try {
+      //不判断目前的引用关系
       unresolvedCacheRef = true;
       Cache cache = configuration.getCache(namespace);
       if (cache == null) {

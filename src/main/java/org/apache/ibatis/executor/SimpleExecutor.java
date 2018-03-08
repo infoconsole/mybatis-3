@@ -60,7 +60,9 @@ public class SimpleExecutor extends BaseExecutor {
       Configuration configuration = ms.getConfiguration();
       //RoutingStatementHandler
       StatementHandler handler = configuration.newStatementHandler(wrapper, ms, parameter, rowBounds, resultHandler, boundSql);
+      System.out.println("------------已经绑定了了一堆handler--------------------");
       stmt = prepareStatement(handler, ms.getStatementLog());
+      //这个query方法也可能被插件切面
       return handler.<E>query(stmt, resultHandler);
     } finally {
       closeStatement(stmt);
@@ -83,7 +85,9 @@ public class SimpleExecutor extends BaseExecutor {
   private Statement prepareStatement(StatementHandler handler, Log statementLog) throws SQLException {
     Statement stmt;
     Connection connection = getConnection(statementLog);
+    //handler上是可能有插件拦截的   在执行的时候就会触发插件
     stmt = handler.prepare(connection, transaction.getTimeout());
+    //这个方法也可能被插件切面
     handler.parameterize(stmt);
     return stmt;
   }

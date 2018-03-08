@@ -3,6 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mitix.mybatis.mapper.CarMapper" >
 
+    <cache  eviction="LRU"  flushInterval="60000"  size="512"  readOnly="true"/>
+
+
     <insert id="createCar" parameterType="com.mitix.mybatis.model.Car" databaseId="mysql" >
         insert into  car (carname,carage,cardesc,carcreatetime)
         values (#{carName,jdbcType=VARCHAR},#{carAge,jdbcType=INTEGER},#{carDesc,jdbcType=VARCHAR},#{carCreateTime,jdbcType=VARCHAR})

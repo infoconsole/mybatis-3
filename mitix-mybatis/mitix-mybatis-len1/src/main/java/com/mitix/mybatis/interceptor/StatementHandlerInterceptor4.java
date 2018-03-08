@@ -17,21 +17,20 @@ import java.util.Properties;
  * @create 2018/2/25
  * ${DESCRIPTION}
  */
-@Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
-public class StatementHandlerInterceptor implements Interceptor {
+@Intercepts({@Signature(type = StatementHandler.class, method = "update", args = {Statement.class})})
+public class StatementHandlerInterceptor4 implements Interceptor {
 
-    public StatementHandlerInterceptor() {
+    public StatementHandlerInterceptor4() {
         System.out.println("---------StatementHandlerInterceptor 被新建----------");
     }
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        System.out.println("---------StatementHandlerInterceptor 的prepare拦截前----------");
-        Connection connection = (Connection) invocation.getArgs()[0];
-        Integer transactionTimeout = (Integer) invocation.getArgs()[1];
-        System.out.println("---------connection is " + connection.toString() + "----------transactionTimeout is " + transactionTimeout + "----");
+        System.out.println("---------StatementHandlerInterceptor 的update拦截前----------");
+        Statement statement = (Statement) invocation.getArgs()[0];
+        System.out.println("---------Statement is " + statement.toString() + "----------");
         Object result = invocation.proceed();
-        System.out.println("---------StatementHandlerInterceptor 的prepare拦截后----------");
+        System.out.println("---------StatementHandlerInterceptor 的update拦截后----------");
         return result;
     }
 

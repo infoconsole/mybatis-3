@@ -90,6 +90,7 @@ public class XMLMapperBuilder extends BaseBuilder {
   public void parse() {
     if (!configuration.isResourceLoaded(resource)) {
       configurationElement(parser.evalNode("/mapper"));
+      //保存mapper.xml的路径位置
       configuration.addLoadedResource(resource);
       bindMapperForNamespace();
     }
@@ -110,9 +111,15 @@ public class XMLMapperBuilder extends BaseBuilder {
         throw new BuilderException("Mapper's namespace cannot be empty");
       }
       builderAssistant.setCurrentNamespace(namespace);
+      //解析cache-ref,和其他名目空间共用cache
+      //这里有个问题,就是mapper.文件不是按照顺序存放的,如果引用的mapper的cache还没来得及解析
+      //那处理引用关系就异常了,就会存放一个标记,没有校验过引用关系,后续应该会继续解析引用关系
       cacheRefElement(context.evalNode("cache-ref"));
+      //解析生成config上的缓存信息集合
       cacheElement(context.evalNode("cache"));
+      //解析parameterMap
       parameterMapElement(context.evalNodes("/mapper/parameterMap"));
+      //解析resultMap
       resultMapElements(context.evalNodes("/mapper/resultMap"));
       sqlElement(context.evalNodes("/mapper/sql"));
       buildStatementFromContext(context.evalNodes("select|insert|update|delete"));
@@ -186,6 +193,7 @@ public class XMLMapperBuilder extends BaseBuilder {
 
   private void cacheRefElement(XNode context) {
     if (context != null) {
+      //设置cacheRef的对应关系
       configuration.addCacheRef(builderAssistant.getCurrentNamespace(), context.getStringAttribute("namespace"));
       CacheRefResolver cacheRefResolver = new CacheRefResolver(builderAssistant, context.getStringAttribute("namespace"));
       try {
@@ -320,6 +328,7 @@ public class XMLMapperBuilder extends BaseBuilder {
   }
 
   private void sqlElement(List<XNode> list) throws Exception {
+    //如果有databaseId的  需要保存两份sql语句
     if (configuration.getDatabaseId() != null) {
       sqlElement(list, configuration.getDatabaseId());
     }
@@ -332,6 +341,7 @@ public class XMLMapperBuilder extends BaseBuilder {
       String id = context.getStringAttribute("id");
       id = builderAssistant.applyCurrentNamespace(id, false);
       if (databaseIdMatchesCurrent(id, databaseId, requiredDatabaseId)) {
+        //把加上namespace的ID的sql语句保存到configuration的sqlFragments
         sqlFragments.put(id, context);
       }
     }

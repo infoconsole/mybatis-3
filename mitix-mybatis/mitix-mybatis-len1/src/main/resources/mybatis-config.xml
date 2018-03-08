@@ -27,8 +27,12 @@
     <plugins>
         <plugin interceptor="com.mitix.mybatis.interceptor.ExecutorInterceptor" />
         <plugin interceptor="com.mitix.mybatis.interceptor.ParameterHandlerInterceptor" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.ParameterHandlerInterceptor2" />
         <plugin interceptor="com.mitix.mybatis.interceptor.ResultSetHandlerInterceptor" />
         <plugin interceptor="com.mitix.mybatis.interceptor.StatementHandlerInterceptor" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.StatementHandlerInterceptor2" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.StatementHandlerInterceptor3" />
+        <plugin interceptor="com.mitix.mybatis.interceptor.StatementHandlerInterceptor4" />
     </plugins>
 
     <environments default="development">
@@ -49,8 +53,9 @@
     </databaseIdProvider>
 
     <mappers>
-        <mapper resource="mapping/userMapper.xml"/>
         <mapper resource="mapping/carMapper.xml"/>
+        <mapper resource="mapping/userMapper.xml"/>
     </mappers>
+
 
 </configuration>
