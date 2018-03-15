@@ -31,7 +31,7 @@ public class MybatisTest {
             SqlSession session = sqlSessionFactory.openSession();
             UserMapper userMapper1 = session.getMapper(UserMapper.class);
             User user1 = userMapper1.queryById(2);
-            System.out.println(user1.getCreatetime());
+            System.out.println(user1.toString());
 //            UserMapper userMapper2 = session.getMapper(UserMapper.class);
 //            User user2 = userMapper2.queryById(2);
 //            System.out.println(user2.getCreatetime());
