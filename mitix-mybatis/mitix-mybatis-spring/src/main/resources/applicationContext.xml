@@ -16,9 +16,9 @@
 						http://www.springframework.org/schema/tx/spring-tx.xsd
 						http://mybatis.org/schema/mybatis-spring
                         http://mybatis.org/schema/mybatis-spring-1.2.xsd">
-    <!--
+
     <mbs:scan base-package="com.mitix.mybatis.spring" />
-    -->
+
     <!--  -->
     <context:component-scan base-package="com.mitix.mybatis.spring"/>
 
@@ -45,6 +45,8 @@
         <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper" />
         -->
     </bean>
+
+
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
