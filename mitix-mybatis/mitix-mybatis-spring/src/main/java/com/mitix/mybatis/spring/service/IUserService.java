@@ -1,7 +1,6 @@
 package com.mitix.mybatis.spring.service;
 
 import com.mitix.mybatis.spring.model.User;
-import org.mybatis.spring.annotation.MapperScan;
 
 /**
  * @author oldflame-jm

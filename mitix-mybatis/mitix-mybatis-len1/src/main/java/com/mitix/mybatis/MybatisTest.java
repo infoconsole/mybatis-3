@@ -12,14 +12,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author oldflame-jm
  * @create 2018/2/12
  * ${DESCRIPTION}
  */
-public class MybatisTest {
+public class MybatisTest extends Object {
     public static void main(String[] args) {
         try {
 

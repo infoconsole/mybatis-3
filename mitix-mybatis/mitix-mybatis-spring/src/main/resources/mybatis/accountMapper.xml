@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mitix.mybatis.spring.mapper.AccountMapper">
+
+    <cache type="com.mitix.mybatis.spring.MybatisRedisCache" eviction="LRU"  flushInterval="60000"  size="512"  readOnly="true"/>
+
+    <!--
+    变量查询不支持
+    -->
+    <select id="queryCut" parameterType="Integer" resultType="com.mitix.mybatis.spring.model.Account">
+      set @rowmn := 0;
+      select account.id,@rowmn := @rowmn + 1 as cut from account LIMIT 10;
+</select>
+</mapper>

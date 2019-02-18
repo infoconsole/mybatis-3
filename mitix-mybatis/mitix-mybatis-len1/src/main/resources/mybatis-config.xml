@@ -6,7 +6,7 @@
     <properties resource="jdbc.properties"/>
 
     <settings>
-        <setting name="cacheEnabled" value="false"/>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <typeAliases>
@@ -56,6 +56,5 @@
         <mapper resource="mapping/carMapper.xml"/>
         <mapper resource="mapping/userMapper.xml"/>
     </mappers>
-
 
 </configuration>

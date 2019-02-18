@@ -5,6 +5,7 @@
 
     <typeAliases>
         <typeAlias type="com.mitix.mybatis.spring.model.User" alias="user"/>
+        <typeAlias type="com.mitix.mybatis.spring.model.Account" alias="account"/>
     </typeAliases>
 
 </configuration>

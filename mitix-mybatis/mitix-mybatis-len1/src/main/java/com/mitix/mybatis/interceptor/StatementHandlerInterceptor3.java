@@ -1,6 +1,7 @@
 package com.mitix.mybatis.interceptor;
 
 import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
@@ -26,13 +27,9 @@ public class StatementHandlerInterceptor3 implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        System.out.println("---------StatementHandlerInterceptor 的query拦截前----------");
-        Statement statement = (Statement) invocation.getArgs()[0];
-        ResultHandler resultHandler = (ResultHandler) invocation.getArgs()[1];
-        String handlerName = resultHandler == null ? "null" : resultHandler.getClass().getName();
-        System.out.println("---------statement is " + statement.getClass().getName() + " ----------resultHandler is " + handlerName + "-------");
+        MappedStatement statement = (MappedStatement) invocation.getArgs()[0];
+        System.out.println(statement.getCache());
         Object result = invocation.proceed();
-        System.out.println("---------StatementHandlerInterceptor 的query拦截后----------");
         return result;
     }
     
